@@ -952,3 +952,29 @@
 2015-02-26 5:38:22 - PHP Notice:  Undefined variable: delete in C:\xampp\htdocs\demo1uas\admin\view\template\sale\repair_list.tpl on line 29
 2015-02-26 5:45:51 - PHP Notice:  Undefined variable: button_add in C:\xampp\htdocs\demo1uas\admin\view\template\sale\repair_list.tpl on line 5
 2015-02-26 5:45:51 - PHP Notice:  Undefined variable: text_confirm in C:\xampp\htdocs\demo1uas\admin\view\template\sale\repair_list.tpl on line 6
+2015-03-07 10:17:39 - PHP Warning:  fopen(/PHP/huuhanhv20/system/cache/cache.product.latest.1.0.1.10.1425723459): failed to open stream: No such file or directory in C:\PHP\HuuHanhv20\system\library\cache\file.php on line 49
+2015-03-07 10:17:39 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in C:\PHP\HuuHanhv20\system\library\cache\file.php on line 51
+2015-03-07 10:17:39 - PHP Warning:  fwrite() expects parameter 1 to be resource, boolean given in C:\PHP\HuuHanhv20\system\library\cache\file.php on line 53
+2015-03-07 10:17:39 - PHP Warning:  fflush() expects parameter 1 to be resource, boolean given in C:\PHP\HuuHanhv20\system\library\cache\file.php on line 55
+2015-03-07 10:17:39 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in C:\PHP\HuuHanhv20\system\library\cache\file.php on line 57
+2015-03-07 10:17:39 - PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in C:\PHP\HuuHanhv20\system\library\cache\file.php on line 59
+2015-03-07 10:17:40 - PHP Warning:  fopen(/PHP/huuhanhv20/system/cache/cache.product.bestseller.1.0.1.6.1425723460): failed to open stream: No such file or directory in C:\PHP\HuuHanhv20\system\library\cache\file.php on line 49
+2015-03-07 10:17:40 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in C:\PHP\HuuHanhv20\system\library\cache\file.php on line 51
+2015-03-07 10:17:40 - PHP Warning:  fwrite() expects parameter 1 to be resource, boolean given in C:\PHP\HuuHanhv20\system\library\cache\file.php on line 53
+2015-03-07 10:17:40 - PHP Warning:  fflush() expects parameter 1 to be resource, boolean given in C:\PHP\HuuHanhv20\system\library\cache\file.php on line 55
+2015-03-07 10:17:40 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in C:\PHP\HuuHanhv20\system\library\cache\file.php on line 57
+2015-03-07 10:17:40 - PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in C:\PHP\HuuHanhv20\system\library\cache\file.php on line 59
+2015-03-07 10:17:40 - PHP Warning:  fopen(/PHP/huuhanhv20/system/cache/cache.language.1425723460): failed to open stream: No such file or directory in C:\PHP\HuuHanhv20\system\library\cache\file.php on line 49
+2015-03-07 10:17:40 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in C:\PHP\HuuHanhv20\system\library\cache\file.php on line 51
+2015-03-07 10:17:40 - PHP Warning:  fwrite() expects parameter 1 to be resource, boolean given in C:\PHP\HuuHanhv20\system\library\cache\file.php on line 53
+2015-03-07 10:17:40 - PHP Warning:  fflush() expects parameter 1 to be resource, boolean given in C:\PHP\HuuHanhv20\system\library\cache\file.php on line 55
+2015-03-07 10:17:40 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in C:\PHP\HuuHanhv20\system\library\cache\file.php on line 57
+2015-03-07 10:17:40 - PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in C:\PHP\HuuHanhv20\system\library\cache\file.php on line 59
+2015-03-07 10:17:40 - PHP Warning:  fopen(/PHP/huuhanhv20/system/cache/cache.currency.1425723460): failed to open stream: No such file or directory in C:\PHP\HuuHanhv20\system\library\cache\file.php on line 49
+2015-03-07 10:17:40 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in C:\PHP\HuuHanhv20\system\library\cache\file.php on line 51
+2015-03-07 10:17:40 - PHP Warning:  fwrite() expects parameter 1 to be resource, boolean given in C:\PHP\HuuHanhv20\system\library\cache\file.php on line 53
+2015-03-07 10:17:40 - PHP Warning:  fflush() expects parameter 1 to be resource, boolean given in C:\PHP\HuuHanhv20\system\library\cache\file.php on line 55
+2015-03-07 10:17:40 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in C:\PHP\HuuHanhv20\system\library\cache\file.php on line 57
+2015-03-07 10:17:40 - PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in C:\PHP\HuuHanhv20\system\library\cache\file.php on line 59
+2015-03-07 12:04:53 - PHP Notice:  Undefined index: specification in C:\PHP\HuuHanhv20\khanhhan\model\catalog\product.php on line 430
+2015-03-07 12:04:53 - PHP Notice:  Undefined index: specification in C:\PHP\HuuHanhv20\khanhhan\model\catalog\product.php on line 430
