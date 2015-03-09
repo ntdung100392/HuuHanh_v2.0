@@ -22,6 +22,6 @@ define('DIR_LOGS', '/PHP/huuhanhv20/system/logs/');
 define('DB_DRIVER', 'mysqli');
 define('DB_HOSTNAME', 'localhost');
 define('DB_USERNAME', 'root');
-define('DB_PASSWORD', '');
+define('DB_PASSWORD', 'Twinstran@021094');
 define('DB_DATABASE', 'huuhanhv20');
 define('DB_PREFIX', '');
