@@ -309,7 +309,6 @@ class ControllerProductProduct extends Controller {
 			} else {
 				$data['stock'] = $this->language->get('text_instock');
 			}
-                        
 
 			$this->load->model('tool/image');
 
@@ -387,6 +386,11 @@ $data['thumb_fixed'] = $this->model_tool_image->resize($product_info['image'], $
 				$data['price'] = false;
 			}
 
+
+            if ($product_info['price'] == 0) {
+				$data['price'] = $this->language->get('call_in_price');
+				}
+            
 			if ((float)$product_info['special']) {
 
                 if (strpos($this->config->get('config_template'), 'journal2') === 0 && $this->journal2->settings->get('show_countdown_product_page', 'on') == 'on') {

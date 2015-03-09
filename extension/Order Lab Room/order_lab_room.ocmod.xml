@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<modification>
+	<name>Repair Service Extension Opencart 2.0.x</name>
+    <code>repairservice</code>
+    <version>1.0</version>
+    <author>Dung Nguyen - TMA Solutions</author>
+	<link>http://1uas.com</link>
+    <file path="catalog/controller/account/account.php">
+        <operation>
+            <search><![CDATA[$data['return'] = $this->url->link('account/return', '', 'SSL');]]></search>
+            <add position="after"><![CDATA[$data['repair'] = $this->url->link('account/repair', '', 'SSL');]]></add>
+        </operation>
+    </file>
+    <file path="catalog/view/theme/journal2/template/account/account.tpl">
+        <operation>
+            <search><![CDATA[<li><a href="<?php echo $return; ?>"><?php echo $text_return; ?></a></li>]]></search>
+            <add position="after"><![CDATA[<li><a href="<?php echo $repair; ?>">View your repair service requests</a></li>]]></add>
+        </operation>
+    </file>
+    <file path="catalog/controller/module/account.php">
+        <operation>
+            <search><![CDATA[$data['return'] = $this->url->link('account/return', '', 'SSL');]]></search>
+            <add position="after"><![CDATA[$data['repair'] = $this->url->link('account/repair', '', 'SSL');]]></add>
+        </operation>
+    </file>
+    <file path="catalog/view/theme/journal2/template/module/account.tpl">
+        <operation>
+            <search><![CDATA[<li><a href="<?php echo $return; ?>" class="list-group-item"><?php echo $text_return; ?></a></li>]]></search>
+            <add position="after"><![CDATA[<li><a href="<?php echo $repair; ?>" class="list-group-item">Repairs</a></li>]]></add>
+        </operation>
+    </file>
+    <!-- Footer edit -->
+    <file path="catalog/controller/common/footer.php">
+        <operation>
+            <search><![CDATA[$data['return'] = $this->url->link('account/return/insert', '', 'SSL');]]></search>
+            <add position="after"><![CDATA[$data['repair'] = $this->url->link('account/repair/insert', '', 'SSL');]]></add>
+        </operation>
+    </file>
+    <file path="catalog/view/theme/journal2/template/common/footer.tpl">
+        <operation>
+            <search><![CDATA[<li><a href="<?php echo $return; ?>"><?php echo $text_return; ?></a></li>]]></search>
+            <add position="after"><![CDATA[<li><a href="<?php echo $repair; ?>">Repair/Build RTF service </a></li>]]></add>
+        </operation>
+    </file>
+    <!-- admin -->
+    <file path="admin/view/template/common/menu.tpl">
+        <operation>
+            <search><![CDATA[<li><a href="<?php echo $return; ?>"><?php echo $text_return; ?></a></li>]]></search>
+            <add position="after"><![CDATA[<li><a href="<?php echo $repair; ?>">Repair/Build RTF service</a></li>]]></add>
+        </operation>
+        <operation>
+            <search><![CDATA[<li><a class="parent"><?php echo $text_return; ?></a>]]></search>
+            <add position="before"><![CDATA[
+                <li><a class="parent"><?php echo $text_repair; ?></a>
+                  <ul>
+                    <li><a href="<?php echo $repair_status; ?>"><?php echo $text_repair_status; ?></a></li>
+                    <li><a href="<?php echo $repair_action; ?>"><?php echo $text_repair_action; ?></a></li>
+                    <li><a href="<?php echo $repair_reason; ?>"><?php echo $text_repair_reason; ?></a></li>
+                  </ul>
+                </li>
+            ]]></add>
+        </operation>
+    </file>
+    <file path="admin/controller/common/menu.php">
+        <operation>
+            <search><![CDATA[$data['text_return'] = $this->language->get('text_return');]]></search>
+            <add position="before"><![CDATA[
+                $data['text_repair'] = $this->language->get('text_repair');
+		$data['text_repair_action'] = $this->language->get('text_repair_action');
+		$data['text_repair_reason'] = $this->language->get('text_repair_reason');
+		$data['text_repair_status'] = $this->language->get('text_repair_status');
+		$data['column_repair_id'] = $this->language->get('column_repair_id');
+            ]]></add>
+        </operation>
+        <operation>
+            <search><![CDATA[$data['return'] = $this->url->link('sale/return', 'token=' . $this->session->data['token'], 'SSL');]]></search>
+            <add position="after"><![CDATA[
+                $data['repair'] = $this->url->link('sale/repair', 'token=' . $this->session->data['token'], 'SSL');
+                $data['repair_action'] = $this->url->link('localisation/repair_action', 'token=' . $this->session->data['token'], 'SSL');
+		$data['repair_reason'] = $this->url->link('localisation/repair_reason', 'token=' . $this->session->data['token'], 'SSL');
+		$data['repair_status'] = $this->url->link('localisation/repair_status', 'token=' . $this->session->data['token'], 'SSL');
+        ]]></add>
+        </operation>
+    </file>
+    <file path="admin/language/english/english.php">
+        <operation>
+            <search position="after"><![CDATA[$_['tab_return']                    = 'Return Details';]]></search>
+            <add><![CDATA[
+                    $_['tab_repair']              = 'Repair/Build RTF Details';
+                    $_['tab_repair_history']      = 'Repair//Build RTF History';
+        ]]></add>
+        </operation>
+    </file>
+    <file path="admin/language/english/setting/setting.php">
+        <operation>
+            <search><![CDATA[$_['text_return']                  = 'Returns';]]></search>
+            <add position="after"><![CDATA[
+                    $_['text_repair']      = 'Repairs';
+                    $_['entry_repair']                 = 'Repair Terms:<br /><span class="help">Forces people to agree to terms before an repair account can be created.</span>';
+                    $_['entry_repair_status']          = 'Repair Status:<br /><span class="help">Set the default return status when an repairs request is submitted.</span>';
+        ]]></add>
+        </operation>
+    </file>
+    <file path="admin/language/english/common/menu.php">
+        <operation>
+            <search><![CDATA[$_['text_return']                      = 'Returns';]]></search>
+            <add position="before"><![CDATA[
+                     $_['text_repair']                      = 'Repairs';
+                    $_['text_repair_action']               = 'Repair Actions';
+                    $_['text_repair_reason']               = 'Repair Reasons';
+                    $_['text_repair_status']               = 'Repair Statuses';
+        ]]></add>
+        </operation>
+    </file>
+    <file path="admin/view/template/setting/setting.tpl">
+        <operation>
+            <search><![CDATA[<h2><?php echo $text_return; ?></h2>]]></search>
+            <add position="before"><![CDATA[
+            <h2><?php echo $text_repair; ?></h2>
+            <table class="form">
+              <tr>
+                <td><?php echo $entry_repair; ?></td>
+                <td><select name="config_repair_id">
+                    <option value="0"><?php echo $text_none; ?></option>
+                    <?php foreach ($informations as $information) { ?>
+                    <?php if ($information['information_id'] == $config_repair_id) { ?>
+                    <option value="<?php echo $information['information_id']; ?>" selected="selected"><?php echo $information['title']; ?></option>
+                    <?php } else { ?>
+                    <option value="<?php echo $information['information_id']; ?>"><?php echo $information['title']; ?></option>
+                    <?php } ?>
+                    <?php } ?>
+                  </select></td>
+              </tr>
+              <tr>
+                <td><?php echo $entry_repair_status; ?></td>
+                <td><select name="config_repair_status_id">
+                    <?php foreach ($repair_statuses as $repair_status) { ?>
+                    <?php if ($repair_status['repair_status_id'] == $config_repair_status_id) { ?>
+                    <option value="<?php echo $repair_status['repair_status_id']; ?>" selected="selected"><?php echo $repair_status['name']; ?></option>
+                    <?php } else { ?>
+                    <option value="<?php echo $repair_status['repair_status_id']; ?>"><?php echo $repair_status['name']; ?></option>
+                    <?php } ?>
+                    <?php } ?>
+                  </select></td>
+              </tr>
+            </table>
+            ]]></add>
+        </operation>
+    </file>
+    <file path="admin/controller/setting/setting.php">
+        <operation>
+            <search><![CDATA[$data['entry_return_status'] = $this->language->get('entry_return_status');]]></search>
+            <add position="after"><![CDATA[
+                $data['entry_repair'] = $this->language->get('entry_repair');
+		$data['entry_repair_status'] = $this->language->get('entry_repair_status');
+                $data['text_repair'] = $this->language->get('text_repair');
+            ]]></add>
+        </operation>
+        <operation>
+            <search><![CDATA[if (isset($this->request->post['config_return_id'])) {]]></search>
+            <add position="before"><![CDATA[
+                if (isset($this->request->post['config_repair_id'])) {
+			$data['config_repair_id'] = $this->request->post['config_repair_id'];
+		} else {
+			$data['config_repair_id'] = $this->config->get('config_repair_id');		
+		}
+
+		if (isset($this->request->post['config_repair_status_id'])) {
+			$data['config_repair_status_id'] = $this->request->post['config_repair_status_id'];
+		} else {
+			$data['config_repair_status_id'] = $this->config->get('config_repair_status_id');		
+		}
+
+		$this->load->model('localisation/repair_status');
+
+		$data['repair_statuses'] = $this->model_localisation_repair_status->getRepairStatuses();	
+            ]]></add>
+        </operation>
+    </file>
+    
+</modification>

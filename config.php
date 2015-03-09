@@ -17,11 +17,12 @@ define('DIR_DOWNLOAD', '/PHP/huuhanhv20/system/download/');
 define('DIR_UPLOAD', '/PHP/huuhanhv20/system/upload/');
 define('DIR_MODIFICATION', '/PHP/huuhanhv20/system/modification/');
 define('DIR_LOGS', '/PHP/huuhanhv20/system/logs/');
+define('DIR_FILES', '/PHP/huuhanhv20/files/');
 
 // DB
 define('DB_DRIVER', 'mysqli');
 define('DB_HOSTNAME', 'localhost');
 define('DB_USERNAME', 'root');
-define('DB_PASSWORD', 'Twinstran@021094');
+define('DB_PASSWORD', '');
 define('DB_DATABASE', 'huuhanhv20');
 define('DB_PREFIX', '');

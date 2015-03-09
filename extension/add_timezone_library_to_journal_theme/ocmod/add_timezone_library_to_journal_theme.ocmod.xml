@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+    <name>Add TimeZone Library To Journal Theme</name>
+    <code>default</code>
+    <version>1.0</version>
+    <author>Phuc Nguyen - TMA Solutions</author>
+    <link>http://1uas.com</link>
+    <file path="catalog/view/theme/journal2/template/common/header.tpl">
+        <operation>
+            <search><![CDATA[
+            </head>
+            ]]></search>
+            <add position="before"><![CDATA[
+            <script src="catalog/view/javascript/moment.min.js" type="text/javascript"></script>
+			<script src="catalog/view/javascript/moment-timezone.min.js" type="text/javascript"></script>
+			<script src="catalog/view/javascript/working_hour.js" type="text/javascript"></script>
+            ]]></add>
+        </operation>
+    </file>
+</modification>

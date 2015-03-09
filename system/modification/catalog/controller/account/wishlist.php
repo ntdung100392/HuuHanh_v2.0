@@ -97,6 +97,11 @@ class ControllerAccountWishList extends Controller {
 					$price = false;
 				}
 
+
+            if ($product_info['price'] == 0) {
+				$data['price'] = $this->language->get('call_in_price');
+				}
+            
 				if ((float)$product_info['special']) {
 					$special = $this->currency->format($this->tax->calculate($product_info['special'], $product_info['tax_class_id'], $this->config->get('config_tax')));
 				} else {
