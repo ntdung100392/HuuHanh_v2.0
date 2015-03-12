@@ -9,7 +9,7 @@
         <operation>
             <search><![CDATA[// Error]]></search>
             <add position="before"><![CDATA[
-		$_['call_in_price']           = '<span style="color:aqua;font-weight:bold">Call For Price</span>';
+		$_['call_in_price']           = '<span style="color:#ff0000;font-weight:bold">Call For Price</span>';
             ]]></add>
         </operation>
     </file>
