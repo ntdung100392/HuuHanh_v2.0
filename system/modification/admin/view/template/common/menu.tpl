@@ -81,6 +81,7 @@
       <li><a href="<?php echo $order; ?>"><?php echo $text_order; ?></a></li>
       <li><a href="<?php echo $order_recurring; ?>"><?php echo $text_order_recurring; ?></a></li>
       <li><a href="<?php echo $return; ?>"><?php echo $text_return; ?></a></li>
+<li><a href="<?php echo $labpreorder; ?>">labpreorder/Build RTF service</a></li>
       <li><a class="parent"><?php echo $text_customer; ?></a>
         <ul>
           <li><a href="<?php echo $customer; ?>"><?php echo $text_customer; ?></a></li>
@@ -133,6 +134,15 @@
           <li><a href="<?php echo $currency; ?>"><?php echo $text_currency; ?></a></li>
           <li><a href="<?php echo $stock_status; ?>"><?php echo $text_stock_status; ?></a></li>
           <li><a href="<?php echo $order_status; ?>"><?php echo $text_order_status; ?></a></li>
+
+                <li><a class="parent"><?php echo $text_labpreorder; ?></a>
+                  <ul>
+                    <li><a href="<?php echo $labpreorder_status; ?>"><?php echo $text_labpreorder_status; ?></a></li>
+                    <li><a href="<?php echo $labpreorder_action; ?>"><?php echo $text_labpreorder_action; ?></a></li>
+                    <li><a href="<?php echo $labpreorder_reason; ?>"><?php echo $text_labpreorder_reason; ?></a></li>
+                  </ul>
+                </li>
+            
           <li><a class="parent"><?php echo $text_return; ?></a>
             <ul>
               <li><a href="<?php echo $return_status; ?>"><?php echo $text_return_status; ?></a></li>

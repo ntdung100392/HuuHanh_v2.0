@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<modification>
+	<name>Lab Order Service Extension Opencart 2.0.x</name>
+    <code>labpreorder</code>
+    <version>1.0</version>
+    <author>Dung Nguyen - Inspirations</author>
+	<link>http://huuhanh.com.vn</link>
+    <file path="catalog/controller/account/account.php">
+        <operation>
+            <search><![CDATA[$data['return'] = $this->url->link('account/return', '', 'SSL');]]></search>
+            <add position="after"><![CDATA[$data['labpreorder'] = $this->url->link('account/labpreorder', '', 'SSL');]]></add>
+        </operation>
+    </file>
+    <file path="catalog/view/theme/*/template/account/account.tpl">
+        <operation>
+            <search><![CDATA[<li><a href="<?php echo $return; ?>"><?php echo $text_return; ?></a></li>]]></search>
+            <add position="after"><![CDATA[<li><a href="<?php echo $labpreorder; ?>">View your Lab Pre-Order list</a></li>]]></add>
+        </operation>
+    </file>
+    <file path="catalog/controller/module/account.php">
+        <operation>
+            <search><![CDATA[$data['return'] = $this->url->link('account/return', '', 'SSL');]]></search>
+            <add position="after"><![CDATA[$data['labpreorder'] = $this->url->link('account/labpreorder', '', 'SSL');]]></add>
+        </operation>
+    </file>
+    <file path="catalog/view/theme/*/template/module/account.tpl">
+        <operation>
+            <search><![CDATA[<li><a href="<?php echo $return; ?>" class="list-group-item"><?php echo $text_return; ?></a></li>]]></search>
+            <add position="after"><![CDATA[<li><a href="<?php echo $labpreorder; ?>" class="list-group-item">labpreorders</a></li>]]></add>
+        </operation>
+    </file>
+    <!-- Footer edit -->
+    <file path="catalog/controller/common/footer.php">
+        <operation>
+            <search><![CDATA[$data['return'] = $this->url->link('account/return/insert', '', 'SSL');]]></search>
+            <add position="after"><![CDATA[$data['labpreorder'] = $this->url->link('account/labpreorder/insert', '', 'SSL');]]></add>
+        </operation>
+    </file>
+    <file path="catalog/view/theme/*/template/common/footer.tpl">
+        <operation>
+            <search><![CDATA[<li><a href="<?php echo $return; ?>"><?php echo $text_return; ?></a></li>]]></search>
+            <add position="after"><![CDATA[<li><a href="<?php echo $labpreorder; ?>">Lab Pre-Order Service</a></li>]]></add>
+        </operation>
+    </file>
+    <!-- admin -->
+    <file path="admin/view/template/common/menu.tpl">
+        <operation>
+            <search><![CDATA[<li><a href="<?php echo $return; ?>"><?php echo $text_return; ?></a></li>]]></search>
+            <add position="after"><![CDATA[<li><a href="<?php echo $labpreorder; ?>">Lab Pre-Order Service</a></li>]]></add>
+        </operation>
+        <operation>
+            <search><![CDATA[<li><a class="parent"><?php echo $text_return; ?></a>]]></search>
+            <add position="before"><![CDATA[
+                <li><a class="parent"><?php echo $text_labpreorder; ?></a>
+                  <ul>
+                    <li><a href="<?php echo $labpreorder_status; ?>"><?php echo $text_labpreorder_status; ?></a></li>
+                    <li><a href="<?php echo $labpreorder_action; ?>"><?php echo $text_labpreorder_action; ?></a></li>
+                  </ul>
+                </li>
+            ]]></add>
+        </operation>
+    </file>
+    <file path="admin/controller/common/menu.php">
+        <operation>
+            <search><![CDATA[$data['text_return'] = $this->language->get('text_return');]]></search>
+            <add position="before"><![CDATA[
+                $data['text_labpreorder'] = $this->language->get('text_labpreorder');
+		$data['text_labpreorder_action'] = $this->language->get('text_labpreorder_action');
+		$data['text_labpreorder_reason'] = $this->language->get('text_labpreorder_reason');
+		$data['text_labpreorder_status'] = $this->language->get('text_labpreorder_status');
+		$data['column_labpreorder_id'] = $this->language->get('column_labpreorder_id');
+            ]]></add>
+        </operation>
+        <operation>
+            <search><![CDATA[$data['return'] = $this->url->link('sale/return', 'token=' . $this->session->data['token'], 'SSL');]]></search>
+            <add position="after"><![CDATA[
+                $data['labpreorder'] = $this->url->link('sale/labpreorder', 'token=' . $this->session->data['token'], 'SSL');
+                $data['labpreorder_action'] = $this->url->link('localisation/labpreorder_action', 'token=' . $this->session->data['token'], 'SSL');
+		$data['labpreorder_reason'] = $this->url->link('localisation/labpreorder_reason', 'token=' . $this->session->data['token'], 'SSL');
+		$data['labpreorder_status'] = $this->url->link('localisation/labpreorder_status', 'token=' . $this->session->data['token'], 'SSL');
+        ]]></add>
+        </operation>
+    </file>
+    <file path="admin/language/english/english.php">
+        <operation>
+            <search position="after"><![CDATA[$_['tab_return']                    = 'Return Details';]]></search>
+            <add><![CDATA[
+                    $_['tab_labpreorder']              = 'Lab Pre-Order';
+                    $_['tab_labpreorder_history']      = 'Lab Pre-Order History';
+        ]]></add>
+        </operation>
+    </file>
+    <file path="admin/language/english/setting/setting.php">
+        <operation>
+            <search><![CDATA[$_['text_return']                  = 'Returns';]]></search>
+            <add position="after"><![CDATA[
+                    $_['text_labpreorder']      = 'Lab Pre-Order';
+                    $_['entry_labpreorder']                 = 'Lab Pre-Order Terms:<br /><span class="help">Forces people to agree to terms before an labpreorder account can be created.</span>';
+                    $_['entry_labpreorder_status']          = 'Lab Pre-Order Status:<br /><span class="help">Set the default return status when an labpreorders request is submitted.</span>';
+        ]]></add>
+        </operation>
+    </file>
+    <file path="admin/language/english/common/menu.php">
+        <operation>
+            <search><![CDATA[$_['text_return']                      = 'Returns';]]></search>
+            <add position="before"><![CDATA[
+                     $_['text_labpreorder']                      = 'Lab Pre-Order';
+                    $_['text_labpreorder_action']               = 'Lab Pre-Order Actions';
+                    $_['text_labpreorder_status']               = 'Lab Pre-Order Statuses';
+        ]]></add>
+        </operation>
+    </file>
+    <file path="admin/view/template/setting/setting.tpl">
+        <operation>
+            <search><![CDATA[<h2><?php echo $text_return; ?></h2>]]></search>
+            <add position="before"><![CDATA[
+            <h2><?php echo $text_labpreorder; ?></h2>
+            <table class="form">
+              <tr>
+                <td><?php echo $entry_labpreorder; ?></td>
+                <td><select name="config_labpreorder_id">
+                    <option value="0"><?php echo $text_none; ?></option>
+                    <?php foreach ($informations as $information) { ?>
+                    <?php if ($information['information_id'] == $config_labpreorder_id) { ?>
+                    <option value="<?php echo $information['information_id']; ?>" selected="selected"><?php echo $information['title']; ?></option>
+                    <?php } else { ?>
+                    <option value="<?php echo $information['information_id']; ?>"><?php echo $information['title']; ?></option>
+                    <?php } ?>
+                    <?php } ?>
+                  </select></td>
+              </tr>
+              <tr>
+                <td><?php echo $entry_labpreorder_status; ?></td>
+                <td><select name="config_labpreorder_status_id">
+                    <?php foreach ($labpreorder_statuses as $labpreorder_status) { ?>
+                    <?php if ($labpreorder_status['labpreorder_status_id'] == $config_labpreorder_status_id) { ?>
+                    <option value="<?php echo $labpreorder_status['labpreorder_status_id']; ?>" selected="selected"><?php echo $labpreorder_status['name']; ?></option>
+                    <?php } else { ?>
+                    <option value="<?php echo $labpreorder_status['labpreorder_status_id']; ?>"><?php echo $labpreorder_status['name']; ?></option>
+                    <?php } ?>
+                    <?php } ?>
+                  </select></td>
+              </tr>
+            </table>
+            ]]></add>
+        </operation>
+    </file>
+    <file path="admin/controller/setting/setting.php">
+        <operation>
+            <search><![CDATA[$data['entry_return_status'] = $this->language->get('entry_return_status');]]></search>
+            <add position="after"><![CDATA[
+                $data['entry_labpreorder'] = $this->language->get('entry_labpreorder');
+		$data['entry_labpreorder_status'] = $this->language->get('entry_labpreorder_status');
+                $data['text_labpreorder'] = $this->language->get('text_labpreorder');
+            ]]></add>
+        </operation>
+        <operation>
+            <search><![CDATA[if (isset($this->request->post['config_return_id'])) {]]></search>
+            <add position="before"><![CDATA[
+                if (isset($this->request->post['config_labpreorder_id'])) {
+			$data['config_labpreorder_id'] = $this->request->post['config_labpreorder_id'];
+		} else {
+			$data['config_labpreorder_id'] = $this->config->get('config_labpreorder_id');		
+		}
+
+		if (isset($this->request->post['config_labpreorder_status_id'])) {
+			$data['config_labpreorder_status_id'] = $this->request->post['config_labpreorder_status_id'];
+		} else {
+			$data['config_labpreorder_status_id'] = $this->config->get('config_labpreorder_status_id');		
+		}
+
+		$this->load->model('localisation/labpreorder_status');
+
+		$data['labpreorder_statuses'] = $this->model_localisation_labpreorder_status->getlabpreorderStatuses();	
+            ]]></add>
+        </operation>
+    </file>    
+</modification>

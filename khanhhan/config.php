@@ -1,11 +1,11 @@
 <?php
 // HTTP
-define('HTTP_SERVER', 'http://trungdung.ddns.net/huuhanhv20/khanhhan/');
-define('HTTP_CATALOG', 'http://trungdung.ddns.net/huuhanhv20/');
+define('HTTP_SERVER', 'http://localhost:8080/huuhanhv20/khanhhan/');
+define('HTTP_CATALOG', 'http://localhost:8080/huuhanhv20/');
 
 // HTTPS
-define('HTTPS_SERVER', 'https://trungdung.ddns.net/huuhanhv20/khanhhan/');
-define('HTTPS_CATALOG', 'https://trungdung.ddns.net/huuhanhv20/');
+define('HTTPS_SERVER', 'http://localhost:8080/huuhanhv20/khanhhan/');
+define('HTTPS_CATALOG', 'http://localhost:8080/huuhanhv20/');
 
 // DIR
 define('DIR_APPLICATION', '/PHP/huuhanhv20/khanhhan/');
@@ -25,6 +25,6 @@ define('DIR_CATALOG', '/PHP/huuhanhv20/catalog/');
 define('DB_DRIVER', 'mysqli');
 define('DB_HOSTNAME', 'localhost');
 define('DB_USERNAME', 'root');
-define('DB_PASSWORD', 'Twinstran@021094');
+define('DB_PASSWORD', '');
 define('DB_DATABASE', 'huuhanhv20');
 define('DB_PREFIX', '');

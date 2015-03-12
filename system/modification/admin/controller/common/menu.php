@@ -78,6 +78,13 @@ class ControllerCommonMenu extends Controller {
 		$data['text_report_affiliate'] = $this->language->get('text_report_affiliate');
 		$data['text_report_affiliate_activity'] = $this->language->get('text_report_affiliate_activity');
 		$data['text_review'] = $this->language->get('text_review');
+
+                $data['text_labpreorder'] = $this->language->get('text_labpreorder');
+		$data['text_labpreorder_action'] = $this->language->get('text_labpreorder_action');
+		$data['text_labpreorder_reason'] = $this->language->get('text_labpreorder_reason');
+		$data['text_labpreorder_status'] = $this->language->get('text_labpreorder_status');
+		$data['column_labpreorder_id'] = $this->language->get('column_labpreorder_id');
+            
 		$data['text_return'] = $this->language->get('text_return');
 		$data['text_return_action'] = $this->language->get('text_return_action');
 		$data['text_return_reason'] = $this->language->get('text_return_reason');
@@ -170,6 +177,12 @@ class ControllerCommonMenu extends Controller {
 		$data['report_affiliate_activity'] = $this->url->link('report/affiliate_activity', 'token=' . $this->session->data['token'], 'SSL');
 		$data['review'] = $this->url->link('catalog/review', 'token=' . $this->session->data['token'], 'SSL');
 		$data['return'] = $this->url->link('sale/return', 'token=' . $this->session->data['token'], 'SSL');
+
+                $data['labpreorder'] = $this->url->link('sale/labpreorder', 'token=' . $this->session->data['token'], 'SSL');
+                $data['labpreorder_action'] = $this->url->link('localisation/labpreorder_action', 'token=' . $this->session->data['token'], 'SSL');
+		$data['labpreorder_reason'] = $this->url->link('localisation/labpreorder_reason', 'token=' . $this->session->data['token'], 'SSL');
+		$data['labpreorder_status'] = $this->url->link('localisation/labpreorder_status', 'token=' . $this->session->data['token'], 'SSL');
+        
 		$data['return_action'] = $this->url->link('localisation/return_action', 'token=' . $this->session->data['token'], 'SSL');
 		$data['return_reason'] = $this->url->link('localisation/return_reason', 'token=' . $this->session->data['token'], 'SSL');
 		$data['return_status'] = $this->url->link('localisation/return_status', 'token=' . $this->session->data['token'], 'SSL');
