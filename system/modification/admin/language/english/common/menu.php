@@ -60,7 +60,6 @@ $_['text_review']                      = 'Reviews';
 
                      $_['text_labpreorder']                      = 'Lab Pre-Order';
                     $_['text_labpreorder_action']               = 'Lab Pre-Order Actions';
-                    $_['text_labpreorder_reason']               = 'Lab Pre-Order Reasons';
                     $_['text_labpreorder_status']               = 'Lab Pre-Order Statuses';
         
 $_['text_return']                      = 'Returns';

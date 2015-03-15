@@ -10,23 +10,33 @@
             <search><![CDATA[$data['return'] = $this->url->link('account/return', '', 'SSL');]]></search>
             <add position="after"><![CDATA[$data['labpreorder'] = $this->url->link('account/labpreorder', '', 'SSL');]]></add>
         </operation>
+		<operation>
+            <search><![CDATA[$data['text_order'] = $this->language->get('text_order');]]></search>
+            <add position="after"><![CDATA[$data['text_labpreorder'] = $this->language->get('text_labpreorder');]]></add>
+        </operation>
     </file>
     <file path="catalog/view/theme/*/template/account/account.tpl">
         <operation>
             <search><![CDATA[<li><a href="<?php echo $return; ?>"><?php echo $text_return; ?></a></li>]]></search>
-            <add position="after"><![CDATA[<li><a href="<?php echo $labpreorder; ?>">View your Lab Pre-Order list</a></li>]]></add>
+            <add position="after"><![CDATA[<li><a href="<?php echo $labpreorder; ?>"><?php echo $text_labpreorder; ?></a></li>]]></add>
+        </operation>
+    </file>
+	<file path="catalog/language/english/account/account.php">
+        <operation>
+            <search><![CDATA[$_['text_transactions']  = 'Transactions';]]></search>
+            <add position="after"><![CDATA[$_['text_labpreorder']  = 'View your Lab Pre-Order list';]]></add>
+        </operation>
+    </file>
+	<file path="catalog/language/vietnamese/account/account.php">
+        <operation>
+            <search><![CDATA[$_['text_newsletter']    = 'Đăng kí / hủy đăng kí thông báo';]]></search>
+            <add position="after"><![CDATA[$_['text_labpreorder']   = 'Xem lịch sử đặt hàng phòng Lab';]]></add>
         </operation>
     </file>
     <file path="catalog/controller/module/account.php">
         <operation>
             <search><![CDATA[$data['return'] = $this->url->link('account/return', '', 'SSL');]]></search>
             <add position="after"><![CDATA[$data['labpreorder'] = $this->url->link('account/labpreorder', '', 'SSL');]]></add>
-        </operation>
-    </file>
-    <file path="catalog/view/theme/*/template/module/account.tpl">
-        <operation>
-            <search><![CDATA[<li><a href="<?php echo $return; ?>" class="list-group-item"><?php echo $text_return; ?></a></li>]]></search>
-            <add position="after"><![CDATA[<li><a href="<?php echo $labpreorder; ?>" class="list-group-item">labpreorders</a></li>]]></add>
         </operation>
     </file>
     <!-- Footer edit -->

@@ -41,6 +41,7 @@ class ControllerAccountAccount extends Controller {
 		$data['text_address'] = $this->language->get('text_address');
 		$data['text_wishlist'] = $this->language->get('text_wishlist');
 		$data['text_order'] = $this->language->get('text_order');
+$data['text_labpreorder'] = $this->language->get('text_labpreorder');
 		$data['text_download'] = $this->language->get('text_download');
 		$data['text_reward'] = $this->language->get('text_reward');
 		$data['text_return'] = $this->language->get('text_return');

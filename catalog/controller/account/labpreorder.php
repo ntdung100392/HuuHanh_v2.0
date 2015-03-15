@@ -65,7 +65,6 @@ class ControllerAccountlabpreorder extends Controller {
         $labpreorder_total = $this->model_account_labpreorder->getTotallabpreorders();
 
         $results = $this->model_account_labpreorder->getlabpreorders(($page - 1) * 10, 10);
-        print_r($results);
 
         foreach ($results as $result) {
             $data['labpreorders'][] = array(

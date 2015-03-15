@@ -1225,3 +1225,6 @@
 2015-03-12 12:39:53 - PHP Warning:  Invalid argument supplied for foreach() in C:\PHP\HuuHanhv20\khanhhan\controller\sale\labpreorder.php on line 994
 2015-03-12 12:39:53 - PHP Notice:  Undefined variable: text_loading in C:\PHP\HuuHanhv20\khanhhan\view\template\sale\labpreorder_info.tpl on line 142
 2015-03-12 12:41:01 - PHP Notice:  Undefined variable: text_loading in C:\PHP\HuuHanhv20\khanhhan\view\template\sale\labpreorder_info.tpl on line 142
+2015-03-12 16:01:26 - PHP Notice:  Undefined variable: button_add in C:\PHP\HuuHanhv20\khanhhan\view\template\sale\labpreorder_list.tpl on line 5
+2015-03-12 16:32:13 - PHP Notice:  Undefined variable: text_labpreorder in C:\PHP\HuuHanhv20\system\modification\catalog\view\theme\journal2\template\account\account.tpl on line 38
+2015-03-14 17:02:41 - PHP Notice:  Undefined variable: button_add in C:\PHP\HuuHanhv20\khanhhan\view\template\sale\labpreorder_list.tpl on line 5
