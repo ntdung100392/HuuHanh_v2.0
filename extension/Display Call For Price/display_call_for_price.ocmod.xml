@@ -37,4 +37,16 @@
             ]]></add>
         </operation>
     </file>
+	<file path="catalog/controller/*/*.php">
+        <operation>
+            <search><![CDATA[
+            if ((float)$result['special']) {
+            ]]></search>
+            <add position="before"><![CDATA[
+            if ($result['price'] == 0) {
+				$price = $this->language->get('call_in_price');
+				}
+            ]]></add>
+        </operation>
+    </file>
 </modification>

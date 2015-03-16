@@ -117,6 +117,10 @@ class ControllerProductProduct extends Controller {
 			if (isset($this->request->get['description'])) {
 				$url .= '&description=' . $this->request->get['description'];
 			}
+                        
+                        if (isset($this->request->get['specification'])) {
+				$url .= '&specification=' . $this->request->get['specification'];
+			}
 
 			if (isset($this->request->get['category_id'])) {
 				$url .= '&category_id=' . $this->request->get['category_id'];
@@ -183,6 +187,10 @@ class ControllerProductProduct extends Controller {
 
 			if (isset($this->request->get['description'])) {
 				$url .= '&description=' . $this->request->get['description'];
+			}
+                        
+                        if (isset($this->request->get['specification'])) {
+				$url .= '&specification=' . $this->request->get['specification'];
 			}
 
 			if (isset($this->request->get['category_id'])) {
@@ -260,6 +268,7 @@ class ControllerProductProduct extends Controller {
 			$this->load->model('catalog/review');
 
 			$data['tab_description'] = $this->language->get('tab_description');
+                        $data['tab_specification'] = $this->language->get('tab_specification');
 			$data['tab_attribute'] = $this->language->get('tab_attribute');
 			$data['tab_review'] = sprintf($this->language->get('tab_review'), $product_info['reviews']);
 
@@ -390,6 +399,7 @@ class ControllerProductProduct extends Controller {
 			$data['reviews'] = sprintf($this->language->get('text_reviews'), (int)$product_info['reviews']);
 			$data['rating'] = (int)$product_info['rating'];
 			$data['description'] = html_entity_decode($product_info['description'], ENT_QUOTES, 'UTF-8');
+                        $data['specification'] = html_entity_decode($product_info['specification'], ENT_QUOTES, 'UTF-8');
 			$data['attribute_groups'] = $this->model_catalog_product->getProductAttributes($this->request->get['product_id']);
 
 			$data['products'] = array();

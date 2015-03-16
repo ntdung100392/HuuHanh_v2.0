@@ -60,7 +60,7 @@ $_['button_grid']           = 'Grid';
 $_['button_map']            = 'Xem Google Map';
 
 
-		$_['call_in_price']           = '<span style="color:red;font-weight:bold">Call For Price</span>';
+		$_['call_in_price']           = '<span style="color:#ff0000;font-weight:bold">Call For Price</span>';
             
 // Error
 $_['error_exception']       = 'Error Code(%s): %s in %s on line %s';

@@ -632,17 +632,7 @@ class ControllerCatalogProduct extends Controller {
 		$data['tab_links'] = $this->language->get('tab_links');
 		$data['tab_reward'] = $this->language->get('tab_reward');
 		$data['tab_design'] = $this->language->get('tab_design');
-		
-                $data['tab_openbay'] = $this->language->get('tab_openbay');
-                
-                 if($this->config->get('config_secure')){
-			$data['config_secure'] = true;
-		} else {
-			$data['config_secure'] = false;
-		}
-                $data['config_image_thumb_width']=$this->config->get('config_image_thumb_width');
-                 $data['config_image_thumb_height']=$this->config->get('config_image_thumb_height');
-	
+		$data['tab_openbay'] = $this->language->get('tab_openbay');
 
 		if (isset($this->error['warning'])) {
 			$data['error_warning'] = $this->error['warning'];
@@ -1255,15 +1245,7 @@ class ControllerCatalogProduct extends Controller {
 			$product_images = array();
 		}
 
-		
-                 if (isset($this->request->post['multi_upload_image'])) {
-            $data['file_upload'] = $this->request->post['multi_upload_image'];
-        } elseif ($this->config->get('multi_upload_image')) {
-            $data['file_upload'] = $this->config->get('multi_upload_image');
-        }
-                
-                $data['product_images'] = array();
-	
+		$data['product_images'] = array();
 
 		foreach ($product_images as $product_image) {
 			if (is_file(DIR_IMAGE . $product_image['image'])) {

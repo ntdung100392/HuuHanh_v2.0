@@ -121,6 +121,11 @@ class ControllerModuleRelatedproductspro extends Controller {
 					} else {
 						$price = false;
 					}
+
+            if ($result['price'] == 0) {
+				$price = $this->language->get('call_in_price');
+				}
+            
 					if ((float)$result['special']) {
 						$special = $this->currency->format($this->tax->calculate($result['special'], $result['tax_class_id'], $this->config->get('config_tax')));
 					} else {
