@@ -5,7 +5,7 @@
 
 <!-- Facebook sharing information tags -->
 
-<title>Lab Pre-Order Service Form IntelligentUAS</title>
+<title>Lab Pre-Order Service Form Huu Hanh Co Ltd.,</title>
 <style type="text/css">
 /* Client-specific Styles */
 
@@ -298,7 +298,7 @@ h4, .h4 {
               
               <table border="0" cellpadding="0" cellspacing="0" width="95%" id="templateHeader">
                 <tr>
-                  <td class="headerContent"><img src="<?php echo HTTP_IMAGE; ?>data/logo/logo.jpg" style="text-align:left;width: 190px;"/></td>
+                  <td class="headerContent"><img src="<?php echo HTTP_IMAGE; ?>logo1.jpg" style="text-align:left;width: 190px;"/></td>
                 </tr>
               </table>
               
@@ -320,9 +320,6 @@ h4, .h4 {
                             <strong>Last Name:</strong> <?php echo $lastname; ?><br />
                             <strong>E-Mail:</strong> <?php echo $email; ?><br />
                             <strong>Telephone:</strong> <?php echo $telephone; ?><br />
-                            <strong>Order ID: </strong><?php echo $order_id; ?><br />
-                            <strong>Order Date:</strong> <?php echo $date_ordered; ?><br />
-                            <strong>Login ID or eBay/Amazon ID:</strong> <?php echo $login_id; ?></p>
                           <h1 class="h1">Product information & Repair order detail</h1>
                           <p><strong>Product Name:</strong> <?php echo $product; ?><br />
                             <strong>Product Code:</strong> <?php echo $model; ?><br />
@@ -331,10 +328,10 @@ h4, .h4 {
                           <p><?php echo nl2br($comment); ?><br />
                           </p>
                           <p><strong>Please send your items to address below, writing clearly the RSO number on the outside of the box:</strong><br />
-                            IntelligentUAS<br />
-                            6801 Kenilworth Avenue, Suite 140<br />
-                            Riverdale, MD 20737<br />
-                            United States</p></td>
+                            Huu Hanh Co Ltd.,<br />
+                            135C Phu Hoa Area, Lac Long Quan<br />
+                            Ward 15, District 10<br />
+                            Ho Chi Minh, Viet Nam</p></td>
                       </tr>
                     </table>
                     
@@ -356,8 +353,8 @@ h4, .h4 {
                         <td colspan="2" valign="middle" id="social"><div mc:edit="std_social"> &nbsp;<a href="https://twitter.com/intelligentUAS">follow on Twitter</a> | <a href="https://www.facebook.com/intelligentUAS">friend on Facebook</a> | <a href="https://www.youtube.com/user/intelligentUAS">our YouTube channel</a> | <a href="http://1uas.com">view our page</a>&nbsp; </div></td>
                       </tr>
                       <tr>
-                        <td valign="top" width="350"><div mc:edit="std_footer"> <em>Copyright &copy; 2014 IntelligentUAS, All rights reserved.</em> <br />
-                            <strong>Our email address is:</strong> support@intelligentuas.com<br />
+                        <td valign="top" width="350"><div mc:edit="std_footer"> <em>Copyright &copy; 2013 Huu Hanh Co, All rights reserved.</em> <br />
+                            <strong>Our email address is:</strong> huuhanhco@gmail.com<br />
                           </div></td>
                         <td valign="top" width="190" id="monkeyRewards">&nbsp;</td>
                       </tr>

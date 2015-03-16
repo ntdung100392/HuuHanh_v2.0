@@ -1228,3 +1228,15 @@
 2015-03-12 16:01:26 - PHP Notice:  Undefined variable: button_add in C:\PHP\HuuHanhv20\khanhhan\view\template\sale\labpreorder_list.tpl on line 5
 2015-03-12 16:32:13 - PHP Notice:  Undefined variable: text_labpreorder in C:\PHP\HuuHanhv20\system\modification\catalog\view\theme\journal2\template\account\account.tpl on line 38
 2015-03-14 17:02:41 - PHP Notice:  Undefined variable: button_add in C:\PHP\HuuHanhv20\khanhhan\view\template\sale\labpreorder_list.tpl on line 5
+2015-03-16 5:54:00 - PHP Notice:  Use of undefined constant HTTP_IMAGE - assumed 'HTTP_IMAGE' in C:\PHP\HuuHanhv20\catalog\view\theme\journal2\template\mail\labpreorder.tpl on line 301
+2015-03-16 5:54:00 - PHP Notice:  Undefined variable: order_id in C:\PHP\HuuHanhv20\catalog\view\theme\journal2\template\mail\labpreorder.tpl on line 323
+2015-03-16 5:54:00 - PHP Notice:  Undefined variable: date_ordered in C:\PHP\HuuHanhv20\catalog\view\theme\journal2\template\mail\labpreorder.tpl on line 324
+2015-03-16 5:54:00 - PHP Notice:  Undefined variable: login_id in C:\PHP\HuuHanhv20\catalog\view\theme\journal2\template\mail\labpreorder.tpl on line 325
+2015-03-16 5:54:25 - PHP Notice:  Undefined variable: button_add in C:\PHP\HuuHanhv20\khanhhan\view\template\sale\labpreorder_list.tpl on line 5
+2015-03-16 5:54:28 - PHP Notice:  Undefined variable: text_loading in C:\PHP\HuuHanhv20\khanhhan\view\template\sale\labpreorder_info.tpl on line 142
+2015-03-16 7:10:37 - PHP Notice:  Undefined variable: specification in C:\PHP\HuuHanhv20\catalog\view\theme\journal2\template\product\product.tpl on line 145
+2015-03-16 7:10:37 - PHP Notice:  Use of undefined constant specification - assumed 'specification' in C:\PHP\HuuHanhv20\catalog\view\theme\journal2\template\product\product.tpl on line 169
+2015-03-16 7:11:56 - PHP Notice:  Use of undefined constant specification - assumed 'specification' in C:\PHP\HuuHanhv20\catalog\view\theme\journal2\template\product\product.tpl on line 169
+2015-03-16 7:12:26 - PHP Notice:  Use of undefined constant specification - assumed 'specification' in C:\PHP\HuuHanhv20\catalog\view\theme\journal2\template\product\product.tpl on line 169
+2015-03-16 7:14:04 - PHP Notice:  Use of undefined constant specification - assumed 'specification' in C:\PHP\HuuHanhv20\catalog\view\theme\journal2\template\product\product.tpl on line 169
+2015-03-16 7:15:28 - PHP Notice:  Use of undefined constant specification - assumed 'specification' in C:\PHP\HuuHanhv20\catalog\view\theme\journal2\template\product\product.tpl on line 169

@@ -1,4 +1,176 @@
-<?php echo $header; ?><?php echo $column_left; ?>
+
+<?php echo $header; ?>		
+                
+<script type="text/javascript" src="view/javascript/jquery-ui/jquery-ui.min.js"></script>
+<link rel="stylesheet" type="text/css" href="view/javascript/jquery-ui/jquery-ui.css" />
+<link rel="stylesheet" type="text/css" href="view/stylesheet/uploadify.css" />
+<script type="text/javascript" src="view/javascript/jquery/jquery.uploadify-3.1.min.js"></script>
+<link rel="stylesheet" href="view/stylesheet/jquery.Jcrop.css" type="text/css" />
+<script src="view/javascript/jquery/jquery.Jcrop.min.js"></script>
+<style type="text/css">
+    .ui-state-highlight { height: 1.5em; line-height: 1.2em; }
+    .uploadify-button {        
+        background-color: transparent;
+        border: none;
+        padding: 0;
+        margin-top : 10px;
+    }
+    .uploadify:hover .uploadify-button {
+        background-color: transparent;
+    }
+    #aspect_ratio,#free_ratio{
+        border: 0 none;
+        clip: rect(0px, 0px, 0px, 0px);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
+</style>
+<script type="text/javascript">
+    var allow_crop_image = 0;
+     function show_crop_image(img_row)
+    {          
+        var path = '<?php if($config_secure) echo HTTPS_CATALOG . 'image/'; else echo HTTP_CATALOG . 'image/'; ?>';
+        var image = path + $('#input-image' + img_row).val();        
+        
+        var jcrop_api;
+        var $dialog = $('<form id="crop_form"><input type="hidden" id="x" name="top_x" /><input type="hidden" id="y" name="top_y" /><input type="hidden" id="x2" name="bottom_x" /><input type="hidden" id="y2" name="bottom_y" /></form><div><div style="text-align:center;"><img src="' + image + '" /></div><div style="margin-top: 15px;"><div id="radio" style="float:left;"><input type="radio" id="free_ratio"  name="radio" checked/><label for="free_ratio">Free ratio</label><input name="radio" type="radio" id="aspect_ratio"/><label for="aspect_ratio">Setting ratio</label></div><div style="float:right;"><input id="hw" type="text" size="10" value="0 x 0" style="text-align:center;color:#1C94C4;font-weight: bold;" ></div></div></div>');
+        $dialog.find('img').Jcrop({
+             bgOpacity: 0.5,             
+             bgColor: 'black',
+             addClass: 'jcrop-dark',
+             aspectRatio: 0,
+             onSelect: updateCoords,
+             onChange:  updateCoords
+        },
+        function(){        
+            jcrop_api = this;          
+            $dialog.find('#radio').buttonset();
+        
+            $dialog.find('#free_ratio').click(function(){
+                jcrop_api.setOptions({ aspectRatio: 0} );
+                jcrop_api.focus();            
+            });
+          
+            $dialog.find('#aspect_ratio').click(function(){        
+                jcrop_api.setOptions({ aspectRatio: "<?php echo $config_image_thumb_width/$config_image_thumb_height; ?>"} );
+                jcrop_api.focus();                
+            });
+          
+          
+            $dialog.dialog({
+                modal: true,
+                title: 'Crop Image',
+                close: function(){ $dialog.remove(); },
+                width: jcrop_api.getBounds()[0]+ 27,
+                resizable: false,
+                buttons: {
+                "Crop Image" : function() {        
+                    
+                   if(allow_crop_image == 0)
+                   {
+                       alert('Please select the area to crop');
+                       return;
+                   }
+                    
+                    $.getJSON('index.php?route=common/filemanager/crop_image&image_url=' + $('#input-image' + img_row).val() + '&token=<?php echo $token; ?>', $('#crop_form').serialize(),function(image){                        
+                         console.log(image);
+                         
+                         if(image.status == 1)
+                         {
+                             $('#thumb-image' + img_row).parent().children().find('img').attr('src',image.thumb);
+                         }
+                    });
+                    
+                    $(this).dialog("close");
+                    
+                },
+                "Cancel" : function() {
+                    $(this).dialog("close");
+                    
+                }}
+          });
+        });
+    }    
+    
+    function updateCoords(c)
+    {      
+        $('#x').val(c.x);
+	$('#y').val(c.y);
+	$('#x2').val(c.x2);
+	$('#y2').val(c.y2);
+        $('#hw').val(Math.round(c.w + 0) + ' x ' + Math.round(c.h + 0));	
+        
+        if(Math.round(c.w) == 0 || Math.round(c.h) == 0)
+            allow_crop_image =  0;
+        else
+            allow_crop_image = 1;
+        
+    };     
+    
+    // Set product image
+      function set_data_image(image_row) {
+            $('#input-image').val($('#input-image' + image_row).val());
+            alert('Set Product Image');
+    }
+    // Re-calculate sort order column
+    function reset_image_order_index()
+    {        
+        var count = 1;
+        $('.image_sort').each(function(index, value){ 
+            $(this).val(count++);        
+        });         
+    }
+    
+    $(document).ready(function () {        
+        reset_image_order_index();
+        
+         $("#images").sortable({
+                items: 'tbody',
+                placeholder: "ui-state-highlight",
+                start: function (event, ui) {
+                      ui.placeholder.html('<!--[if IE]><td>&nbsp;</td><![endif]-->');
+                },
+                stop : function(event,ui){
+                reset_image_order_index(); // Resort-index
+                }
+          });
+         
+        // Return a helper with preserved width of cells
+        $('#file_upload').uploadify({
+            'swf': '<?php if($config_secure) echo HTTPS_SERVER; else echo HTTP_SERVER; ?>view/image/multi_upload/uploadify.swf',
+            'uploader': '<?php if($config_secure) echo HTTPS_SERVER; else echo HTTP_SERVER; ?>index.php?route=common/filemanager/multi_upload&token=<?php echo $token; ?>',
+            'buttonImage': '<?php if($config_secure) echo HTTPS_SERVER; else echo HTTP_SERVER; ?>view/image/multi_upload/multi_upload.jpg',
+            'height': 25,
+            'width': 98,
+            'fileTypeDesc' : 'Image Files',
+            'fileTypeExts' : '*.gif; *.jpg; *.png',
+            'removeTimeout' : 0,
+             'onQueueComplete' : function(uploads) {
+                reset_image_order_index();
+            },
+            'onUploadSuccess': function (file, data, response) {
+                console.log(data);
+                
+                var image = jQuery.parseJSON(data);
+                if (image.status == 1) {
+                  html = '<tr id="image-row' + image_row + '">';
+                  html += '  <td class="text-left"><a href="" id="thumb-image' + image_row + '" data-toggle="image" class="img-thumbnail"><img src="' + image.thumb + '" alt="" title="" data-placeholder="<?php echo $placeholder; ?>" /><input type="hidden" name="product_image[' + image_row + '][image]" value="' + image.file_name + '" id="input-image' + image_row + '" /></td>';
+                html += '    <td class="text-right"><input class="image_sort" type="text" name="product_image[' + image_row + '][sort_order]" value="' + (image_row + 1) +'" placeholder="<?php echo $entry_sort_order; ?>" class="form-control"  /></td>';
+                 html += '  <td class="text-left"><a onclick="set_data_image(' + image_row + ');"  class="btn btn-info"><i class="fa fa-check-square"></i></a> <a onclick="show_crop_image(' + image_row + ')" class="btn btn-default"><i class="fa fa-crop"></i></a><button type="button" onclick="$(\'#image-row' + image_row + '\').remove();reset_image_order_index();" data-toggle="tooltip" title="<?php echo $button_remove; ?>" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button></td>';
+                   html += '</tr>';
+
+                  $('#images tbody').append(html);
+
+                 image_row++;
+                }
+            }
+        });
+    });
+</script><?php echo $column_left; ?>
 <div id="content">
 			
 			<script type="text/javascript" src="elfinder/js/elfinder.min.js"></script>
@@ -841,8 +1013,14 @@
                     <?php foreach ($product_images as $product_image) { ?>
                     <tr id="image-row<?php echo $image_row; ?>">
                       <td class="text-left"><a href="" id="thumb-image<?php echo $image_row; ?>" data-toggle="image" class="img-thumbnail"><img src="<?php echo $product_image['thumb']; ?>" alt="" title="" data-placeholder="<?php echo $placeholder; ?>" /></a><input type="hidden" name="product_image[<?php echo $image_row; ?>][image]" value="<?php echo $product_image['image']; ?>" id="input-image<?php echo $image_row; ?>" /></td>
-                      <td class="text-right"><input type="text" name="product_image[<?php echo $image_row; ?>][sort_order]" value="<?php echo $product_image['sort_order']; ?>" placeholder="<?php echo $entry_sort_order; ?>" class="form-control" /></td>
-                      <td class="text-left"><button type="button" onclick="$('#image-row<?php echo $image_row; ?>').remove();" data-toggle="tooltip" title="<?php echo $button_remove; ?>" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button></td>
+                      <td class="text-right"><input class="image_sort" type="text" name="product_image[<?php echo $image_row; ?>][sort_order]" value="<?php echo $product_image['sort_order']; ?>" placeholder="<?php echo $entry_sort_order; ?>" class="form-control"  /></td>
+                      
+<td class="text-left">
+<a onclick="set_data_image('<?php echo $image_row; ?>');" class="btn btn-info"><i class="fa fa-check-square"></i></a> 
+<a onclick="show_crop_image('<?php echo $image_row; ?>')" class="btn btn-default"><i class="fa fa-crop"></i></a>
+<button type="button" onclick="$('#image-row<?php echo $image_row; ?>').remove();reset_image_order_index();" data-toggle="tooltip" title="<?php echo $button_remove; ?>" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button> 
+</td>
+
                     </tr>
                     <?php $image_row++; ?>
                     <?php } ?>
@@ -850,7 +1028,9 @@
                   <tfoot>
                     <tr>
                       <td colspan="2"></td>
-                      <td class="text-left"><button type="button" onclick="addImage();" data-toggle="tooltip" title="<?php echo $button_image_add; ?>" class="btn btn-primary"><i class="fa fa-plus-circle"></i></button></td>
+                      <td class="text-left">
+ <input type="file" name="file_upload" id="file_upload" />
+ <button type="button" onclick="addImage();"  data-toggle="tooltip" title="<?php echo $button_image_add; ?>" class="btn btn-primary"><i class="fa fa-plus-circle"></i></button></td>
                     </tr>
                   </tfoot>
                 </table>
@@ -1439,8 +1619,9 @@ var image_row = <?php echo $image_row; ?>;
 function addImage() {
 	html  = '<tr id="image-row' + image_row + '">';
 	html += '  <td class="text-left"><a href="" id="thumb-image' + image_row + '"data-toggle="image" class="img-thumbnail"><img src="<?php echo $placeholder; ?>" alt="" title="" data-placeholder="<?php echo $placeholder; ?>" /><input type="hidden" name="product_image[' + image_row + '][image]" value="" id="input-image' + image_row + '" /></td>';
-	html += '  <td class="text-right"><input type="text" name="product_image[' + image_row + '][sort_order]" value="" placeholder="<?php echo $entry_sort_order; ?>" class="form-control" /></td>';
-	html += '  <td class="text-left"><button type="button" onclick="$(\'#image-row' + image_row  + '\').remove();" data-toggle="tooltip" title="<?php echo $button_remove; ?>" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button></td>';
+	html += '    <td class="text-right"><input class="image_sort" type="text" name="product_image[' + image_row + '][sort_order]" value="" placeholder="<?php echo $entry_sort_order; ?>" class="form-control"  /></td>';
+	 html += '  <td class="text-left"><a onclick="set_data_image(' + image_row + ');"  class="btn btn-info"><i class="fa fa-check-square"></i></a> <a onclick="show_crop_image(' + image_row + ')" class="btn btn-default"><i class="fa fa-crop"></i></a><button type="button" onclick="$(\'#image-row' + image_row + '\').remove();reset_image_order_index();" data-toggle="tooltip" title="<?php echo $button_remove; ?>" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button></td>';
+                
 	html += '</tr>';
 	
 	$('#images tbody').append(html);

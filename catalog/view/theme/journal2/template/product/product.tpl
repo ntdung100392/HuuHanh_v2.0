@@ -143,7 +143,10 @@
             <li <?php if ($is_active) { echo 'class="active"'; $is_active = false; } ;?>><a href="#tab-description" data-toggle="tab"><?php echo $tab_description; ?></a></li>
             <?php } ?>
             <?php if ($attribute_groups) { ?>
-            <li <?php if ($is_active) { echo 'class="active"'; $is_active = false; } ;?>><a href="#tab-specification" data-toggle="tab"><?php echo $tab_attribute; ?></a></li>
+            <li <?php if ($is_active) { echo 'class="active"'; $is_active = false; } ;?>><a href="#tab-attribute" data-toggle="tab"><?php echo $tab_attribute; ?></a></li>
+            <?php } ?>
+            <?php if ($specification) { ?>
+            <li <?php if ($is_active) { echo 'class="active"'; $is_active = false; } ;?>><a href="#tab-specification" data-toggle="tab"><?php echo $tab_specification; ?></a></li>
             <?php } ?>
             <?php if ($review_status) { ?>
             <li <?php if ($is_active) { echo 'class="active"'; $is_active = false; } ;?>><a href="#tab-review" data-toggle="tab"><?php echo $tab_review; ?></a></li>
@@ -163,7 +166,9 @@
             <?php if (!$this->journal2->settings->get('hide_product_description')) { ?>
             <div class="tab-pane tab-content <?php if ($is_active) { echo 'active'; $is_active = false; } ;?>" id="tab-description"><?php echo $description; ?></div>
             <?php } ?>
-            
+            <?php if ($specification) { ?>
+            <div class="tab-pane tab-content <?php if ($is_active) { echo 'active'; $is_active = false; } ;?>" id="tab-specification"><?php echo $specification; ?></div>
+            <?php } ?>
             <?php if(isset($videos) && sizeof($videos) > 0){ ?>
             <div id="tab-video" class="tab-pane tab-content <?php if ($is_active) { echo 'active'; $is_active = false; } ;?>">
             <?php foreach ($videos as $video) {
@@ -187,7 +192,7 @@
             
             
             <?php if ($attribute_groups) { ?>
-            <div class="tab-pane tab-content <?php if ($is_active) { echo 'active'; $is_active = false; } ;?>" id="tab-specification">
+            <div class="tab-pane tab-content <?php if ($is_active) { echo 'active'; $is_active = false; } ;?>" id="tab-attribute">
               <table class="table table-bordered attribute">
                 <?php foreach ($attribute_groups as $attribute_group) { ?>
                 <thead>
