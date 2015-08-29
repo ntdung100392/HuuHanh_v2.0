@@ -62,13 +62,7 @@
                     <div class="col-sm-10">
                       <textarea name="product_description[<?php echo $language['language_id']; ?>][description]" placeholder="<?php echo $entry_description; ?>" id="input-description<?php echo $language['language_id']; ?>"><?php echo isset($product_description[$language['language_id']]) ? $product_description[$language['language_id']]['description'] : ''; ?></textarea>
                     </div>
-                  </div>                    
-                    <div class="form-group">
-                    <label class="col-sm-2 control-label" for="input-description<?php echo $language['language_id']; ?>"><?php echo $entry_specification; ?></label>
-                    <div class="col-sm-10">
-                      <textarea name="product_description[<?php echo $language['language_id']; ?>][specification]" placeholder="<?php echo $entry_specification; ?>" id="input-specification<?php echo $language['language_id']; ?>"><?php echo isset($product_description[$language['language_id']]) ? $product_description[$language['language_id']]['specification'] : ''; ?></textarea>
-                    </div>
-                  </div>                    
+                  </div>
                   <div class="form-group required">
                     <label class="col-sm-2 control-label" for="input-meta-title<?php echo $language['language_id']; ?>"><?php echo $entry_meta_title; ?></label>
                     <div class="col-sm-10">
@@ -679,7 +673,7 @@
                     <?php foreach ($product_recurrings as $product_recurring) { ?>
                     
                     <tr id="recurring-row<?php echo $recurring_row; ?>">
-                      <td class="text-left"><select name="product_recurrings[<?php echo $recurring_row; ?>][recurring_id]" class="form-control">
+                      <td class="text-left"><select name="product_recurring[<?php echo $recurring_row; ?>][recurring_id]" class="form-control">
                           <?php foreach ($recurrings as $recurring) { ?>
                           <?php if ($recurring['recurring_id'] == $product_recurring['recurring_id']) { ?>
                           <option value="<?php echo $recurring['recurring_id']; ?>" selected="selected"><?php echo $recurring['name']; ?></option>
@@ -688,7 +682,7 @@
                           <?php } ?>
                           <?php } ?>
                         </select></td>
-                      <td class="text-left"><select name="product_recurrings[<?php echo $recurring_row; ?>][customer_group_id]" class="form-control">
+                      <td class="text-left"><select name="product_recurring[<?php echo $recurring_row; ?>][customer_group_id]" class="form-control">
                           <?php foreach ($customer_groups as $customer_group) { ?>
                           <?php if ($customer_group['customer_group_id'] == $product_recurring['customer_group_id']) { ?>
                           <option value="<?php echo $customer_group['customer_group_id']; ?>" selected="selected"><?php echo $customer_group['name']; ?></option>
@@ -920,27 +914,9 @@
       </div>
     </div>
   </div>
-<script type="text/javascript" src="view/javascript/ckeditor/ckeditor.js"></script> 
-<script type="text/javascript"><!--
+  <script type="text/javascript"><!--
 <?php foreach ($languages as $language) { ?>
-CKEDITOR.replace('input-description<?php echo $language['language_id']; ?>', {
-        extraAllowedContent: 'script style object embed',
-	filebrowserBrowseUrl: 'index.php?route=common/filemanager&token=<?php echo $token; ?>',
-	filebrowserImageBrowseUrl: 'index.php?route=common/filemanager&token=<?php echo $token; ?>',
-	filebrowserFlashBrowseUrl: 'index.php?route=common/filemanager&token=<?php echo $token; ?>',
-	filebrowserUploadUrl: 'index.php?route=common/filemanager&token=<?php echo $token; ?>',
-	filebrowserImageUploadUrl: 'index.php?route=common/filemanager&token=<?php echo $token; ?>',
-	filebrowserFlashUploadUrl: 'index.php?route=common/filemanager&token=<?php echo $token; ?>'
-});
-
-CKEDITOR.replace('input-specification<?php echo $language['language_id']; ?>', {
-	filebrowserBrowseUrl: 'index.php?route=common/filemanager&token=<?php echo $token; ?>',
-	filebrowserImageBrowseUrl: 'index.php?route=common/filemanager&token=<?php echo $token; ?>',
-	filebrowserFlashBrowseUrl: 'index.php?route=common/filemanager&token=<?php echo $token; ?>',
-	filebrowserUploadUrl: 'index.php?route=common/filemanager&token=<?php echo $token; ?>',
-	filebrowserImageUploadUrl: 'index.php?route=common/filemanager&token=<?php echo $token; ?>',
-	filebrowserFlashUploadUrl: 'index.php?route=common/filemanager&token=<?php echo $token; ?>'
-});
+$('#input-description<?php echo $language['language_id']; ?>').summernote({height: 300});
 <?php } ?>
 //--></script> 
   <script type="text/javascript"><!--
@@ -1386,14 +1362,14 @@ function addRecurring() {
 	html  = '';
 	html += '<tr id="recurring-row' + recurring_row + '">';
 	html += '  <td class="left">';
-	html += '    <select name="product_recurrings[' + recurring_row + '][recurring_id]" class="form-control">>';
+	html += '    <select name="product_recurring[' + recurring_row + '][recurring_id]" class="form-control">>';
 	<?php foreach ($recurrings as $recurring) { ?>
 	html += '      <option value="<?php echo $recurring['recurring_id']; ?>"><?php echo $recurring['name']; ?></option>';
 	<?php } ?>
 	html += '    </select>';
 	html += '  </td>';
 	html += '  <td class="left">';
-	html += '    <select name="product_recurrings[' + recurring_row + '][customer_group_id]" class="form-control">>';
+	html += '    <select name="product_recurring[' + recurring_row + '][customer_group_id]" class="form-control">>';
 	<?php foreach ($customer_groups as $customer_group) { ?>
 	html += '      <option value="<?php echo $customer_group['customer_group_id']; ?>"><?php echo $customer_group['name']; ?></option>';
 	<?php } ?>
